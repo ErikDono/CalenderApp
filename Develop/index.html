@@ -43,43 +43,83 @@
         <section>
           <div class='row'>
             <div class='col-lg-3'>10 AM</div>
-            <div class='col-lg-6' style="background-color: aqua;">This is where they will enter</div>
-            <div class='col-lg-3'>ill put a button here</div>
+            <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
+              <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
+              <span id=" printedEvent"></span>
+            </div>
+            <div class='col-lg-3'>
+              <button id="submit" type="submit" class="btn btn-primary" style="float:left">Submit</button>
+            </div>
           </div>
           <div class='row'>
             <div class='col-lg-3'>11 AM</div>
-            <div class='col-lg-6' style="background-color: aqua;">This is where they will enter</div>
-            <button class='col-lg-3'>ill put a button here</button>
+            <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
+              <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
+              <span id=" printedEvent"></span>
+            </div>
+            <div class='col-lg-3'>
+              <button id="submit" type="submit" class="btn btn-primary" style="float:left">Submit</button>
+            </div>
           </div>
           <div class='row'>
             <div class='col-lg-3'>12 PM</div>
-            <div class='col-lg-6' style="background-color: aqua;">This is where they will enter</div>
-            <div class='col-lg-3'>ill put a button here</div>
+            <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
+              <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
+              <span id=" printedEvent"></span>
+            </div>
+            <div class='col-lg-3'>
+              <button id="submit" type="submit" class="btn btn-primary" style="float:left">Submit</button>
+            </div>
           </div>
           <div class='row'>
             <div class='col-lg-3'>1 PM</div>
-            <div class='col-lg-6' style="background-color: aqua;">This is where they will enter</div>
-            <div class='col-lg-3'>ill put a button here</div>
+            <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
+              <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
+              <span id=" printedEvent"></span>
+            </div>
+            <div class='col-lg-3'>
+              <button id="submit" type="submit" class="btn btn-primary" style="float:left">Submit</button>
+            </div>
           </div>
           <div class='row'>
             <div class='col-lg-3'>2 PM</div>
-            <div class='col-lg-6' style="background-color: aqua;">This is where they will enter</div>
-            <div class='col-lg-3'>ill put a button here</div>
+            <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
+              <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
+              <span id=" printedEvent"></span>
+            </div>
+            <div class='col-lg-3'>
+              <button id="submit" type="submit" class="btn btn-primary" style="float:left">Submit</button>
+            </div>
           </div>
           <div class='row'>
             <div class='col-lg-3'>3 PM</div>
-            <div class='col-lg-6' style="background-color: aqua;">This is where they will enter</div>
-            <div class='col-lg-3'>ill put a button here</div>
+            <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
+              <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
+              <span id=" printedEvent"></span>
+            </div>
+            <div class='col-lg-3'>
+              <button id="submit" type="submit" class="btn btn-primary" style="float:left">Submit</button>
+            </div>
           </div>
           <div class='row'>
             <div class='col-lg-3'>4 PM</div>
-            <div class='col-lg-6' style="background-color: aqua;">This is where they will enter</div>
-            <div class='col-lg-3'>ill put a button here</div>
+            <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
+              <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
+              <span id=" printedEvent"></span>
+            </div>
+            <div class='col-lg-3'>
+              <button id="submit" type="submit" class="btn btn-primary" style="float:left">Submit</button>
+            </div>
           </div>
           <div class='row'>
             <div class='col-lg-3'>5 PM</div>
-            <div class='col-lg-6' style="background-color: aqua;">This is where they will enter</div>
-            <div class='col-lg-3'>ill put a button here</div>
+            <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
+              <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
+              <span id=" printedEvent"></span>
+            </div>
+            <div class='col-lg-3'>
+              <button id="submit" type="submit" class="btn btn-primary" style="float:left">Submit</button>
+            </div>
           </div>
         </section>
       </div>
@@ -93,7 +133,7 @@
 
   <script type="text/javascript">
 
-    var storedEvent = [];
+    var capturedEvent = [];
 
     callit()
 
@@ -105,32 +145,33 @@
       if (userEvent === "") {
         return
       };
-      storedEvent = userEvent.trim();
-      console.log(storedEvent);
+      capturedEvent = userEvent.trim();
+      console.log(capturedEvent);
 
       storeEvent();
 
     })
     function storeEvent() {
-      localStorage.setItem("storedEvent", JSON.stringify(storedEvent));
+      localStorage.setItem("capturedEvent", JSON.stringify(capturedEvent));
 
     }
 
     function callit() {
-      var newEvent = JSON.parse.(localStorage.getItem("storedEvent"));
+      var newEvent = JSON.parse(localStorage.getItem("capturedEvent"));
       if (newEvent !== null) {
 
-        console.log(newEvent)
+        capturedEvent = newEvent;
 
-
+        // renderEvent()
       }
-
 
     }
 
 
 
-    //
+
+
+
 
 
   </script>

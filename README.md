@@ -7,3 +7,5 @@ This webpage will be a basic calender, where you can:
 
 
 The first thing i did was copy the js from moment-js and createa  js file, so that my webpage could use the API's info. 
+
+I've made it so that you can see what day and time it is. 
