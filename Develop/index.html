@@ -87,24 +87,49 @@
 
   </div>
 
-
+  <!-- if the value of the stored event is greater than currentTime, then x color
+      if the value of storedEvent is less than currentTime, then x color
+-->
 
   <script type="text/javascript">
 
+    var storedEvent = [];
 
+    callit()
 
 
     $("#submit").on("click", function (event) {
-
-      event.preventDefault();
       var userEvent = $('#savedEvent').val();
-      console.log(userEvent)
-      localStorage.setItem("userEvent", JSON.stringify(userEvent))
+      event.preventDefault();
 
+      if (userEvent === "") {
+        return
+      };
+      storedEvent = userEvent.trim();
+      console.log(storedEvent);
 
-
+      storeEvent();
 
     })
+    function storeEvent() {
+      localStorage.setItem("storedEvent", JSON.stringify(storedEvent));
+
+    }
+
+    function callit() {
+      var newEvent = JSON.parse.(localStorage.getItem("storedEvent"));
+      if (newEvent !== null) {
+
+        console.log(newEvent)
+
+
+      }
+
+
+    }
+
+
+
     //
 
 
