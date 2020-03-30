@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css" />
   <script src="momentjs.js"></script>
   <title>Work Day Scheduler</title>
@@ -31,10 +32,13 @@
       <div class='form-group'>
         <div class='row'>
           <div class='col-lg-3'>9 AM</div>
-          <div class='input-group col-lg-6' style="background-color: aqua;">
-            <input type="text" class="form-control" id='savedEvent'>
+          <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
+            <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
+            <span id=" printedEvent"></span>
           </div>
-          <div class='col-lg-3'>ill put a button here</div>
+          <div class='col-lg-3'>
+            <button id="submit" type="submit" class="btn btn-primary" style="float:left">Submit</button>
+          </div>
         </div>
         <section>
           <div class='row'>
@@ -81,39 +85,37 @@
       </div>
     </form>
 
-
-
-
-
-    <!-- 
-
-      this is going to be a text and submit button with a value of 9
-      this is going to be a text and submit button with a value of 10
-      this is going to be a text and submit button with a value of 11
-      this is going to be a text and submit button with a value of 12
-      this is going to be a text and submit button with a value of 1
-      this is going to be a text and submit button with a value of 2
-      this is going to be a text and submit button with a value of 3
-      this is going to be a text and submit button with a value of 4
-      this is going to be a text and submit button with a value of 5
-
-     -->
   </div>
 
 
-  <script>
+
+  <script type="text/javascript">
 
 
 
 
+    $("#submit").on("click", function (event) {
+
+      event.preventDefault();
+      var userEvent = $('#savedEvent').val();
+      console.log(userEvent)
+      localStorage.setItem("userEvent", JSON.stringify(userEvent))
 
 
 
-//  if value is >current time h , replace the div with this already happened, and style gray.
 
+    })
+    //
 
 
   </script>
+
+
+
+
+
+
+
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 

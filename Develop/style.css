@@ -3,6 +3,19 @@ body {
   font-size: 16px;
   line-height: 1;
 }
+.wrapper {
+    position: relative;
+}
+
+input {
+    padding-left: 48px;
+}
+
+.wrapper span {
+    position: absolute;
+    left: 25px;
+    margin-top: 32px;
+}
 
 textarea{
   background: transparent;
