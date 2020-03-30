@@ -22,16 +22,16 @@
     <p id="currentDay" class="lead"></p>
     <script>
       var now = moment().format('MMMM Do YYYY, h:mm');
-      var dateAndTime = document.getElementById('currentDay');
+      var dateAndTime = $('currentDay');
       dateAndTime.innerHTML = now;
     </script>
 
   </header>
-  <div class="container" style="margin-left: 5px;">
+  <div class="container" style="align-content: center;">
     <form>
-      <div class='form-group'>
+      <div class='card form-group'>
         <div class='row'>
-          <div class='col-lg-3'>9 AM</div>
+          <div class='col-lg-3' style="text-align: right">9 AM</div>
           <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
             <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
             <span id=" printedEvent"></span>
@@ -40,9 +40,11 @@
             <button id="submit" type="submit" class="btn btn-primary" style="float:left">Submit</button>
           </div>
         </div>
+
         <section>
+
           <div class='row'>
-            <div class='col-lg-3'>10 AM</div>
+            <div class='col-lg-3' style="text-align: right">10 AM</div>
             <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
               <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
               <span id=" printedEvent"></span>
@@ -52,7 +54,7 @@
             </div>
           </div>
           <div class='row'>
-            <div class='col-lg-3'>11 AM</div>
+            <div class='col-lg-3' style="text-align: right">11 AM</div>
             <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
               <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
               <span id=" printedEvent"></span>
@@ -62,7 +64,7 @@
             </div>
           </div>
           <div class='row'>
-            <div class='col-lg-3'>12 PM</div>
+            <div class='col-lg-3' style="text-align: right">12 PM</div>
             <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
               <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
               <span id=" printedEvent"></span>
@@ -72,7 +74,7 @@
             </div>
           </div>
           <div class='row'>
-            <div class='col-lg-3'>1 PM</div>
+            <div class='col-lg-3' style="text-align: right">1 PM</div>
             <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
               <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
               <span id=" printedEvent"></span>
@@ -82,7 +84,7 @@
             </div>
           </div>
           <div class='row'>
-            <div class='col-lg-3'>2 PM</div>
+            <div class='col-lg-3' style="text-align: right">2 PM</div>
             <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
               <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
               <span id=" printedEvent"></span>
@@ -92,7 +94,7 @@
             </div>
           </div>
           <div class='row'>
-            <div class='col-lg-3'>3 PM</div>
+            <div class='col-lg-3' style="text-align: right">3 PM</div>
             <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
               <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
               <span id=" printedEvent"></span>
@@ -102,7 +104,7 @@
             </div>
           </div>
           <div class='row'>
-            <div class='col-lg-3'>4 PM</div>
+            <div class='col-lg-3' style="text-align: right">4 PM</div>
             <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
               <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
               <span id=" printedEvent"></span>
@@ -112,7 +114,7 @@
             </div>
           </div>
           <div class='row'>
-            <div class='col-lg-3'>5 PM</div>
+            <div class='col-lg-3' style="text-align: right">5 PM</div>
             <div class='input-group col-lg-6 wrapper' style="background-color: aqua;">
               <input type="text" class="form-control" id='savedEvent' style="margin-top: 20px">
               <span id=" printedEvent"></span>
@@ -127,57 +129,68 @@
 
   </div>
 
-  <!-- if the value of the stored event is greater than currentTime, then x color
-      if the value of storedEvent is less than currentTime, then x color
--->
+  <javscriptbelow>
+    <script type="text/javascript">
 
-  <script type="text/javascript">
-
-    var capturedEvent = [];
-
-    callit()
+      var capturedEvent = [];
 
 
-    $("#submit").on("click", function (event) {
-      var userEvent = $('#savedEvent').val();
-      event.preventDefault();
+      callit()
 
-      if (userEvent === "") {
-        return
-      };
-      capturedEvent = userEvent.trim();
-      console.log(capturedEvent);
 
-      storeEvent();
+      $("#submit").on("click", function (event) {
+        var userEvent = $('#savedEvent').val();
+        event.preventDefault();
 
-    })
-    function storeEvent() {
-      localStorage.setItem("capturedEvent", JSON.stringify(capturedEvent));
+        if (userEvent === "") {
+          return
+        };
+        capturedEvent = userEvent.trim();
 
-    }
 
-    function callit() {
-      var newEvent = JSON.parse(localStorage.getItem("capturedEvent"));
-      if (newEvent !== null) {
+        storeEvent();
 
-        capturedEvent = newEvent;
+      })
+      function storeEvent() {
+        localStorage.setItem("capturedEvent", JSON.stringify(capturedEvent));
 
-        // renderEvent()
       }
 
-    }
+      function callit() {
+        var newEvent = JSON.parse(localStorage.getItem("capturedEvent"));
+        console.log(newEvent)
+        if (newEvent !== null) {
+
+          capturedEvent = newEvent;
 
 
+          renderEvent()
+        }
+
+      }
+      function renderEvent() {
+        var displayEvent = "";
+
+        displayEvent.textcontext = capturedEvent;
+
+        console.log(displayEvent)
+        $("#printedEvent").append(displayEvent)
+
+      }
+
+    </script>
+  </javscriptbelow>
 
 
+  <!-- realizing this only works for 9 AM... Awesome! I tried to make an apt with a tutor this week
+ for just this reason, but their only availabity was >6PM, and i've been working 9-7 (sadly i have to take customer
+calls no matter what...)
 
+I've gotten the input to save to local storage, and ive called it up, but i cannot append it to my <span>, 
+which means i cannot render my event.
 
-
-
-  </script>
-
-
-
+I was going to then try to assign values for each button, so that if (value > moment().startOf('hour').fromNow()){
+color = yellow} else if (value < moment(stuff) {color=blue}. // // -->
 
 
 
