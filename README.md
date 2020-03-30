@@ -16,7 +16,7 @@ I was able to get my javascript to push items to the local storage, see below...
 
 ![local_storage](./assets/local_storage.png)
 
-I was also able to console log newEvent at some point, after getting it from local storage, but now that is not working. 
+The var newEvent is only console logging after the page is refresehed... but it does pull from the local storage, at least.
 
 Please see my explanation for the different color times: 
 
